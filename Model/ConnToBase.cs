@@ -14,9 +14,9 @@ namespace MenadżerPaczek.Model
         {
             public static int wersja_nr = 20193;
             //public static int SessionID;
-            public static string serwer = "10.8.0.134\\optima";
-            public static string serwerXL = "db1";
-            public static string database = "CDN_Joart_BCC";//cdnxl_joart ; cdnxl_test
+            public static string serwer = "192.168.0.53\\optima";
+            public static string serwerXL = "10.8.0.6";
+            public static string database = "CDN_Joart_PZT";//cdnxl_joart ; cdnxl_test
             public static string databaseXL = "CDNXL_JOART";//cdnxl_joart ; cdnxl_test
             public static string sqluser = "szachownica";
             public static string sqluserXL = "sa";

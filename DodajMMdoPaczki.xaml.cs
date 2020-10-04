@@ -23,24 +23,28 @@ namespace MenadżerPaczek
     public partial class DodajMMdoPaczki : Window
     {
 
-        ObservableCollection<MM> CheckMMToPaczkaList;
+        public ObservableCollection<MM> CheckMMToPaczkaList { get; set; }
+        public ObservableCollection<MM> ListaMM { get; set; }
         SQL sQL;
         private int gidnr;
         public DodajMMdoPaczki(int v)
         {
             InitializeComponent();
             sQL = new SQL();
-            FillDataMM();
             CheckMMToPaczkaList = new ObservableCollection<MM>();
+            ListaMM = new ObservableCollection<MM>();
+            FillDataMM();
             gidnr = v;
+
         }
 
 
         void FillDataMM()
         {
-            
 
-            grid_MM.ItemsSource = sQL.GetListaMM();
+            ListaMM= sQL.GetListaMM();
+            DataContext = this;
+            //grid_MM.ItemsSource = sQL.GetListaMM();
         }
 
         private void btn_addMMtoPaczka_Click(object sender, RoutedEventArgs e)

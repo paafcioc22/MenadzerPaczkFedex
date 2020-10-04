@@ -22,10 +22,11 @@ namespace MenadżerPaczek.Serwis
         {
             listaDoZatwierdzenia = new ObservableCollection<MM>();
             var querystring = $@" 
-              select   trn_numerpelny, trn_numernr, cast(TrN_DataDok as date)DataDok  , mag_symbol, trn_opis
+              select   trn_numerpelny, trn_numernr, cast(TrN_DataDok as date)DataDok  , zr.mag_symbol, trn_opis,dcl.Mag_GIDNumer magdcl, zr.Mag_GIDNumer magzrd
               from cdn.tranag
-	            join cdn.magazyny on mag_magid=TrN_MagDocId 
-              where TrN_TypDokumentu=312 and TrN_DataDok>'20200910'
+	            join cdn.magazyny dcl on dcl.mag_magid=TrN_MagDocId 
+	            join cdn.magazyny zr on zr.mag_magid=TrN_MagZrdId 
+              where TrN_TypDokumentu=312 and TrN_DataDok>'20190910'
               and trn_bufor=0 and trn_magzrdid=1 ";//and trn_Stan = 1
 
             using (SqlConnection connection = new SqlConnection(sqlconn))
@@ -44,6 +45,9 @@ namespace MenadżerPaczek.Serwis
                                 Data = reader["DataDok"].ToString(),
                                 Opis = reader["trn_opis"].ToString(),
                                 Trn_Numer = reader["trn_numernr"].ToString(),
+                                magdcl = Convert.ToInt32(reader["magdcl"]),
+                                magzrd = Convert.ToInt32(reader["magzrd"]),
+                                
 
                             });
                     }

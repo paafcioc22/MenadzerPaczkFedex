@@ -8,7 +8,7 @@
         Title="DodajMMdoPaczki" Height="523.206" Width="800" ShowInTaskbar="False">
     <Grid >
         <Button x:Name="btn_addPaczkaDone" Content="Zakończ paczkę" HorizontalAlignment="Left" Margin="28,0,0,10" VerticalAlignment="Bottom" Width="116" Height="31" Click="btn_addPaczkaDone_Click"/>
-        <DataGrid x:Name="grid_MM" Margin="171,41,10,238" CanUserAddRows="False"/>
+        <DataGrid x:Name="grid_MM" Margin="171,41,353,238" CanUserAddRows="False"/>
         <DataGrid x:Name="grid_Paczka" Margin="171,0,10,10" Height="189" VerticalAlignment="Bottom" CanUserAddRows="False"/>
         <Button x:Name="btn_addMMtoPaczka" Margin="28,63,0,0" HorizontalAlignment="Left" Width="116" Height="86" VerticalAlignment="Top" Click="btn_addMMtoPaczka_Click" >
             <TextBlock Text="Dodaj zaznaczone MMki do paczki" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
@@ -18,6 +18,14 @@
         <Button x:Name="btn_delte" HorizontalAlignment="Left" Margin="40,0,0,96" VerticalAlignment="Bottom" Width="104" Height="65" Click="btn_delte_Click">
             <TextBlock Text="Usuń z paczki zaznaczone MMki" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center"/>
         </Button>
+        <ListView ItemsSource="{Binding ListaMM}" HorizontalAlignment="Right" Margin="0,41,10,238" Width="321">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  Header="Wybór" DisplayMemberBinding="{Binding IsCheckd}"></GridViewColumn>
+                    <GridViewColumn  Header="Nr MMki" DisplayMemberBinding="{Binding Trn_DokumentObcy}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>

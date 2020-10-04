@@ -14,5 +14,7 @@ namespace MenadżerPaczek.Model
         public string Data { get; set; }
         public string Opis { get; internal set; }
         public string Trn_Numer { get; internal set; }
+        public int magdcl { get;   set; }
+        public int magzrd { get;   set; }
     }
 }
